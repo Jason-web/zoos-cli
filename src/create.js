@@ -4,6 +4,7 @@ const {
   fetchReopLists,
   getTagLists,
   downDir,
+  copyTempToLoclhost,
 } = require("./utils/common");
 
 module.exports = async (projectName) => {
@@ -20,7 +21,7 @@ module.exports = async (projectName) => {
   ]);
   const tags = await fnLoadingByOra(
     getTagLists,
-    `正在链接你的选择的仓库${repo}的版本号...`
+    `正在查询你选择的仓库${repo}的版本号...`
   )(repo);
   const tagLists = tags.map((item) => item.name);
   const { tag } = await inquirer.prompt([
@@ -35,4 +36,5 @@ module.exports = async (projectName) => {
   console.log(`仓库 ${repo}的版本信息列表：${tag}`);
   const target = await fnLoadingByOra(downDir, '下载项目中...')(repo, tag);
   console.log('target:', target);
+  await copyTempToLoclhost(target, projectName);
 };

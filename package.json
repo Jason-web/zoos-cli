@@ -20,8 +20,13 @@
   "dependencies": {
     "axios": "^0.21.0",
     "commander": "^6.2.0",
+    "consolidate": "^0.16.0",
     "download-git-repo": "^3.0.2",
+    "ejs": "^3.1.5",
+    "fs-extra": "^9.0.1",
     "inquirer": "^7.3.3",
+    "metalsmith": "^2.3.0",
+    "ncp": "^2.0.0",
     "ora": "^5.1.0"
   }
 }
