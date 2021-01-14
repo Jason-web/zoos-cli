@@ -127,9 +127,9 @@ const copyTempToLoclhost = async (target, projectName) => {
         .use((files, metal, done) => {
           const res = metal.metadata();
           console.log('res22:', res);
-          console.log('files22:', files);
           //  获取文件中的内容
           Reflect.ownKeys(files).forEach(async (file) => {
+            console.log('file:', file);
             //  文件是.js或者.json才是模板引擎
             if (file.includes(".js") || file.includes(".json")) {
               let content = files[file].contents.toString(); //文件内容
